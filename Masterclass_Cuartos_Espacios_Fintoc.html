@@ -1,0 +1,987 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cuartos Espacios — El próximo desafío de las organizaciones que escalan rápido</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --negro: #09090b;
+    --tinta: #18181b;
+    --gris-7: #3f3f46;
+    --gris-5: #71717a;
+    --gris-3: #a1a1aa;
+    --gris-1: #e4e4e7;
+    --gris-0: #f4f4f5;
+    --fondo: #fafafa;
+    --blanco: #ffffff;
+    --acento: #2563eb;
+    --acento-suave: #eff6ff;
+    --acento-borde: #bfdbfe;
+    --verde: #16a34a;
+    --verde-suave: #f0fdf4;
+    --serif: 'Libre Baskerville', Georgia, serif;
+    --sans: 'DM Sans', system-ui, sans-serif;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: var(--sans);
+    background: var(--fondo);
+    color: var(--tinta);
+    font-size: 16px;
+    line-height: 1.75;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ── HERO ── */
+  .hero {
+    background: var(--negro);
+    padding: 0;
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* Ruido sutil */
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
+    pointer-events: none;
+    opacity: 0.8;
+  }
+
+  .hero-inner {
+    position: relative;
+    z-index: 1;
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 80px 52px 72px;
+  }
+
+  .hero-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 20px;
+    padding: 5px 14px 5px 8px;
+    margin-bottom: 40px;
+  }
+
+  .chip-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--acento);
+  }
+
+  .chip-txt {
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    color: rgba(255,255,255,0.5);
+    text-transform: uppercase;
+  }
+
+  .hero h1 {
+    font-family: var(--serif);
+    font-size: clamp(36px, 5.5vw, 68px);
+    font-weight: 400;
+    line-height: 1.1;
+    color: #ffffff;
+    letter-spacing: -0.02em;
+    max-width: 720px;
+    margin-bottom: 28px;
+  }
+
+  .hero h1 em {
+    font-style: italic;
+    color: rgba(255,255,255,0.45);
+  }
+
+  .hero-sub {
+    font-size: 16px;
+    font-weight: 300;
+    color: rgba(255,255,255,0.45);
+    max-width: 540px;
+    line-height: 1.7;
+    margin-bottom: 56px;
+  }
+
+  .hero-meta {
+    display: flex;
+    align-items: center;
+    gap: 0;
+    padding-top: 32px;
+    border-top: 1px solid rgba(255,255,255,0.07);
+  }
+
+  .meta-item {
+    padding-right: 28px;
+    margin-right: 28px;
+    border-right: 1px solid rgba(255,255,255,0.08);
+  }
+
+  .meta-item:last-child {
+    border-right: none;
+    margin-right: 0;
+    padding-right: 0;
+  }
+
+  .meta-label {
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.22);
+    font-weight: 500;
+    display: block;
+    margin-bottom: 2px;
+  }
+
+  .meta-valor {
+    font-size: 13px;
+    color: rgba(255,255,255,0.55);
+    font-weight: 300;
+  }
+
+  /* ── PULLQUOTE INICIAL ── */
+  .pullquote {
+    background: var(--blanco);
+    border-bottom: 1px solid var(--gris-1);
+  }
+
+  .pq-inner {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 64px 52px;
+    display: grid;
+    grid-template-columns: 4px 1fr;
+    gap: 32px;
+    align-items: center;
+  }
+
+  .pq-linea {
+    background: var(--acento);
+    border-radius: 2px;
+    align-self: stretch;
+  }
+
+  .pq-texto {
+    font-family: var(--serif);
+    font-size: clamp(20px, 2.8vw, 30px);
+    font-weight: 400;
+    line-height: 1.4;
+    color: var(--tinta);
+    letter-spacing: -0.01em;
+  }
+
+  .pq-texto em {
+    font-style: italic;
+    color: var(--gris-5);
+  }
+
+  /* ── LAYOUT PRINCIPAL ── */
+  .main {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 0 52px;
+  }
+
+  /* ── SECCIONES ── */
+  .sec {
+    padding: 72px 0;
+    border-bottom: 1px solid var(--gris-1);
+    opacity: 0;
+    animation: fade-up 0.6s ease forwards;
+  }
+
+  .sec:nth-child(1) { animation-delay: 0.05s; }
+  .sec:nth-child(2) { animation-delay: 0.15s; }
+  .sec:nth-child(3) { animation-delay: 0.25s; }
+  .sec:nth-child(4) { animation-delay: 0.35s; }
+  .sec:nth-child(5) { animation-delay: 0.45s; }
+  .sec:last-child { border-bottom: none; }
+
+  @keyframes fade-up {
+    from { opacity: 0; transform: translateY(16px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  .sec-eyebrow {
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--acento);
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .sec-eyebrow::after {
+    content: '';
+    flex: 1;
+    max-width: 32px;
+    height: 1px;
+    background: var(--acento-borde);
+  }
+
+  .sec h2 {
+    font-family: var(--serif);
+    font-size: clamp(22px, 3vw, 34px);
+    font-weight: 400;
+    line-height: 1.2;
+    color: var(--tinta);
+    letter-spacing: -0.01em;
+    margin-bottom: 24px;
+    max-width: 600px;
+  }
+
+  .sec p {
+    font-size: 15.5px;
+    font-weight: 300;
+    color: var(--gris-7);
+    line-height: 1.8;
+    margin-bottom: 18px;
+    max-width: 640px;
+  }
+
+  .sec p strong { color: var(--tinta); font-weight: 400; }
+  .sec p:last-child { margin-bottom: 0; }
+
+  /* ── TIMELINE ── */
+  .timeline {
+    margin-top: 40px;
+    position: relative;
+  }
+
+  .timeline::before {
+    content: '';
+    position: absolute;
+    left: 15px; top: 8px; bottom: 8px;
+    width: 1px;
+    background: var(--gris-1);
+  }
+
+  .tl-item {
+    display: grid;
+    grid-template-columns: 32px 1fr;
+    gap: 20px;
+    margin-bottom: 32px;
+    align-items: start;
+  }
+
+  .tl-item:last-child { margin-bottom: 0; }
+
+  .tl-dot {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: var(--blanco);
+    border: 1.5px solid var(--gris-1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    position: relative;
+    z-index: 1;
+  }
+
+  .tl-dot-inner {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--gris-3);
+  }
+
+  .tl-item.activo .tl-dot {
+    border-color: var(--acento-borde);
+    background: var(--acento-suave);
+  }
+
+  .tl-item.activo .tl-dot-inner {
+    background: var(--acento);
+  }
+
+  .tl-año {
+    font-size: 11px;
+    font-weight: 500;
+    color: var(--gris-3);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-bottom: 4px;
+    margin-top: 6px;
+  }
+
+  .tl-item.activo .tl-año { color: var(--acento); }
+
+  .tl-titulo {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--tinta);
+    margin-bottom: 6px;
+    line-height: 1.35;
+  }
+
+  .tl-desc {
+    font-size: 13.5px;
+    color: var(--gris-5);
+    font-weight: 300;
+    line-height: 1.65;
+  }
+
+  /* ── TARJETAS DE BRECHA ── */
+  .brechas {
+    margin-top: 36px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+  }
+
+  .brecha {
+    background: var(--blanco);
+    border: 1px solid var(--gris-1);
+    border-radius: 12px;
+    padding: 24px 22px;
+    transition: border-color 0.2s, transform 0.2s;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .brecha:hover {
+    border-color: var(--gris-3);
+    transform: translateY(-2px);
+  }
+
+  .brecha-num {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 36px;
+    color: var(--gris-1);
+    line-height: 1;
+  }
+
+  .brecha h4 {
+    font-size: 13.5px;
+    font-weight: 500;
+    color: var(--tinta);
+    line-height: 1.35;
+  }
+
+  .brecha p {
+    font-size: 13px;
+    color: var(--gris-5);
+    font-weight: 300;
+    line-height: 1.65;
+    margin-bottom: 0;
+    max-width: 100%;
+  }
+
+  /* ── TABLA COMPARATIVA ── */
+  .tabla-wrap {
+    margin-top: 36px;
+    background: var(--blanco);
+    border: 1px solid var(--gris-1);
+    border-radius: 12px;
+    overflow: hidden;
+  }
+
+  .tabla {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13.5px;
+  }
+
+  .tabla thead tr {
+    background: var(--gris-0);
+    border-bottom: 1px solid var(--gris-1);
+  }
+
+  .tabla thead th {
+    padding: 14px 20px;
+    font-weight: 500;
+    font-size: 11px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--gris-5);
+    text-align: left;
+  }
+
+  .tabla thead th:last-child {
+    background: var(--acento-suave);
+    color: var(--acento);
+    border-left: 1px solid var(--acento-borde);
+  }
+
+  .tabla tbody tr {
+    border-bottom: 1px solid var(--gris-1);
+  }
+
+  .tabla tbody tr:last-child { border-bottom: none; }
+
+  .tabla tbody td {
+    padding: 14px 20px;
+    color: var(--gris-7);
+    font-weight: 300;
+    vertical-align: top;
+    line-height: 1.5;
+  }
+
+  .tabla tbody td:first-child {
+    font-weight: 500;
+    font-size: 11px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--gris-3);
+    white-space: nowrap;
+  }
+
+  .tabla tbody td:last-child {
+    background: var(--acento-suave);
+    color: var(--tinta);
+    border-left: 1px solid var(--acento-borde);
+    font-weight: 400;
+  }
+
+  /* ── CALLOUT ── */
+  .callout {
+    margin: 36px 0;
+    background: var(--gris-0);
+    border-radius: 12px;
+    border: 1px solid var(--gris-1);
+    padding: 32px 36px;
+  }
+
+  .callout p {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: clamp(16px, 2vw, 21px);
+    color: var(--tinta);
+    line-height: 1.5;
+    margin-bottom: 0;
+    max-width: 100%;
+  }
+
+  .callout-source {
+    display: block;
+    font-family: var(--sans);
+    font-style: normal;
+    font-size: 11px;
+    color: var(--gris-3);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    font-weight: 500;
+    margin-top: 14px;
+  }
+
+  /* ── PRINCIPIOS APLICADOS ── */
+  .principios {
+    margin-top: 36px;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .principio {
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    gap: 32px;
+    padding: 28px 0;
+    border-top: 1px solid var(--gris-1);
+    align-items: start;
+  }
+
+  .principio:last-child { border-bottom: 1px solid var(--gris-1); }
+
+  .princ-label {
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--tinta);
+    line-height: 1.35;
+  }
+
+  .princ-badge {
+    display: inline-block;
+    margin-top: 6px;
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--verde);
+    background: var(--verde-suave);
+    padding: 2px 8px;
+    border-radius: 4px;
+  }
+
+  .princ-desc {
+    font-size: 14px;
+    color: var(--gris-7);
+    font-weight: 300;
+    line-height: 1.7;
+  }
+
+  /* ── REGLA DE ORO ── */
+  .regla {
+    margin-top: 36px;
+    background: var(--negro);
+    border-radius: 12px;
+    padding: 32px 36px;
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+  }
+
+  .regla-barra {
+    width: 3px;
+    background: var(--acento);
+    border-radius: 2px;
+    align-self: stretch;
+    flex-shrink: 0;
+    min-height: 40px;
+  }
+
+  .regla p {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: clamp(16px, 2vw, 21px);
+    color: rgba(255,255,255,0.85);
+    line-height: 1.5;
+    margin-bottom: 0;
+    max-width: 100%;
+    font-weight: 400;
+  }
+
+  /* ── CIERRE ── */
+  .cierre {
+    background: var(--blanco);
+    border-top: 1px solid var(--gris-1);
+    padding: 72px 52px 80px;
+  }
+
+  .cierre-inner {
+    max-width: 960px;
+    margin: 0 auto;
+  }
+
+  .cierre-eyebrow {
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--gris-3);
+    margin-bottom: 20px;
+    display: block;
+  }
+
+  .cierre h2 {
+    font-family: var(--serif);
+    font-size: clamp(24px, 3.5vw, 36px);
+    font-weight: 400;
+    line-height: 1.25;
+    color: var(--tinta);
+    letter-spacing: -0.01em;
+    max-width: 520px;
+    margin-bottom: 16px;
+  }
+
+  .cierre-txt {
+    font-size: 15px;
+    font-weight: 300;
+    color: var(--gris-5);
+    max-width: 480px;
+    line-height: 1.75;
+    margin-bottom: 44px;
+  }
+
+  .contacto {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    margin-bottom: 52px;
+  }
+
+  .c-fila {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+
+  .c-icono {
+    width: 38px;
+    height: 38px;
+    border-radius: 9px;
+    background: var(--gris-0);
+    border: 1px solid var(--gris-1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .c-icono svg {
+    width: 15px;
+    height: 15px;
+    stroke: var(--gris-5);
+    fill: none;
+    stroke-width: 1.5;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+
+  .c-label {
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--gris-3);
+    font-weight: 500;
+    display: block;
+    margin-bottom: 1px;
+  }
+
+  .c-valor {
+    font-size: 15px;
+    color: var(--tinta);
+    font-weight: 400;
+  }
+
+  .c-valor a {
+    color: inherit;
+    text-decoration: none;
+    border-bottom: 1px solid var(--gris-1);
+    padding-bottom: 1px;
+    transition: border-color 0.2s;
+  }
+
+  .c-valor a:hover { border-color: var(--acento); }
+
+  .firma {
+    padding-top: 32px;
+    border-top: 1px solid var(--gris-1);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+
+  .firma-nombre {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--tinta);
+  }
+
+  .firma-rol {
+    font-size: 12px;
+    color: var(--gris-3);
+    font-weight: 300;
+    margin-top: 2px;
+  }
+
+  .firma-badge {
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--gris-5);
+    border: 1px solid var(--gris-1);
+    padding: 6px 14px;
+    border-radius: 20px;
+    background: var(--gris-0);
+  }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 700px) {
+    .hero-inner { padding: 56px 24px 52px; }
+    .pq-inner { padding: 48px 24px; }
+    .main { padding: 0 24px; }
+    .sec { padding: 52px 0; }
+    .brechas { grid-template-columns: 1fr; }
+    .tabla-wrap { overflow-x: auto; }
+    .principio { grid-template-columns: 1fr; gap: 10px; }
+    .cierre { padding: 52px 24px 60px; }
+    .callout { padding: 24px 20px; }
+    .regla { padding: 24px 20px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="hero-inner">
+    <div class="hero-chip">
+      <div class="chip-dot"></div>
+      <span class="chip-txt">Apuntes · Masterclass IE University</span>
+    </div>
+
+    <h1>Escalar rápido es fácil.<br><em>Escalar sin perder el alma</em><br>es el verdadero reto.</h1>
+
+    <p class="hero-sub">Por qué las organizaciones de alto crecimiento enfrentan una brecha cultural que ningún sistema ni proceso resuelve — y qué es lo que sí funciona.</p>
+
+    <div class="hero-meta">
+      <div class="meta-item">
+        <span class="meta-label">Para</span>
+        <span class="meta-valor">Lukas Zorich · Fintoc</span>
+      </div>
+      <div class="meta-item">
+        <span class="meta-label">Fuente</span>
+        <span class="meta-valor">Masterclass IE University · 2025</span>
+      </div>
+      <div class="meta-item">
+        <span class="meta-label">Tema</span>
+        <span class="meta-valor">Cuartos Espacios y Economía de la Pertenencia</span>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- PULLQUOTE -->
+<div class="pullquote">
+  <div class="pq-inner">
+    <div class="pq-linea"></div>
+    <p class="pq-texto">
+      El problema no es crecer. El problema es que <em>la cultura que construiste en 10 personas no se replica automáticamente en 100</em> — y nadie te avisa cuándo dejó de hacerlo.
+    </p>
+  </div>
+</div>
+
+<!-- CONTENIDO -->
+<main class="main">
+
+  <!-- SECCIÓN 1 -->
+  <section class="sec">
+    <p class="sec-eyebrow">01</p>
+    <h2>Las fuerzas que redefinieron cómo trabajamos</h2>
+    <p>En la última década, cinco transformaciones cambiaron de forma irreversible la relación entre las personas y los entornos donde trabajan. Las organizaciones que hoy escalan más rápido son las que mejor leyeron estas señales — y las que construyeron cultura en consecuencia.</p>
+
+    <div class="timeline">
+      <div class="tl-item">
+        <div class="tl-dot"><div class="tl-dot-inner"></div></div>
+        <div>
+          <p class="tl-año">2008</p>
+          <p class="tl-titulo">Airbnb cambia la hospitalidad</p>
+          <p class="tl-desc">Habitar el espacio de otro se vuelve masivo. La experiencia deja de ser un servicio estandarizado y pasa a ser acceso a "otra vida". El espacio se convierte en narrativa y en pertenencia.</p>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot"><div class="tl-dot-inner"></div></div>
+        <div>
+          <p class="tl-año">2010</p>
+          <p class="tl-titulo">WeWork mete hospitalidad al trabajo</p>
+          <p class="tl-desc">El espacio de trabajo deja de ser un lugar de producción para convertirse en un lugar de comunidad. Café, eventos, networking: la cultura de empresa empieza a diseñarse intencionalmente.</p>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot"><div class="tl-dot-inner"></div></div>
+        <div>
+          <p class="tl-año">2020</p>
+          <p class="tl-titulo">La pandemia hace el espacio opcional</p>
+          <p class="tl-desc">Las organizaciones que sobrevivieron bien no fueron las que mejor controlaron la presencia — fueron las que lograron mantener cohesión cultural sin un espacio físico compartido.</p>
+        </div>
+      </div>
+      <div class="tl-item activo">
+        <div class="tl-dot"><div class="tl-dot-inner"></div></div>
+        <div>
+          <p class="tl-año">Hoy</p>
+          <p class="tl-titulo">Cinco generaciones, un mismo Slack</p>
+          <p class="tl-desc">Por primera vez, cinco generaciones conviven en los mismos equipos. Cada una tiene una relación distinta con la autoridad, la tecnología y el propósito. La ilusión de cohesión que dan los canales digitales no reemplaza la pertenencia real.</p>
+        </div>
+      </div>
+      <div class="tl-item activo">
+        <div class="tl-dot"><div class="tl-dot-inner"></div></div>
+        <div>
+          <p class="tl-año">Ahora</p>
+          <p class="tl-titulo">La soledad en organizaciones de alto rendimiento</p>
+          <p class="tl-desc">El aislamiento no es solo un fenómeno social — es un riesgo organizacional. Las startups que escalan rápido pueden generar la ilusión de equipo mientras sus personas se sienten cada vez más solas en el día a día.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECCIÓN 2 -->
+  <section class="sec">
+    <p class="sec-eyebrow">02</p>
+    <h2>Las tres brechas que aparecen cuando escalas rápido</h2>
+    <p>No hay startup de alto crecimiento que no enfrente alguna versión de estas tres tensiones. El problema no es que aparezcan — es no verlas venir a tiempo.</p>
+
+    <div class="brechas">
+      <div class="brecha">
+        <div class="brecha-num">01</div>
+        <h4>La brecha de liderazgo técnico</h4>
+        <p>El mejor ingeniero del equipo asciende a líder. Sigue siendo excelente técnicamente — pero ahora lidera personas sin herramientas para ello. El resultado: equipos brillantes con conductores que se agotan gestionando en lugar de creando.</p>
+      </div>
+      <div class="brecha">
+        <div class="brecha-num">02</div>
+        <h4>La brecha de memoria compartida</h4>
+        <p>Lo que se sabía de forma tácita cuando eran 10 personas deja de circular naturalmente cuando son 100. Las decisiones que antes se tomaban con una conversación ahora necesitan proceso. Y el proceso sin propósito se convierte en burocracia.</p>
+      </div>
+      <div class="brecha">
+        <div class="brecha-num">03</div>
+        <h4>La brecha de coherencia multi-mercado</h4>
+        <p>La cultura que funciona en Santiago no viaja automáticamente a Ciudad de México. Y si el equipo del nuevo mercado no siente que pertenece al mismo proyecto, construye su propia sub-cultura — o se va.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECCIÓN 3 -->
+  <section class="sec">
+    <p class="sec-eyebrow">03</p>
+    <h2>De Economía de la Experiencia a Economía de la Pertenencia</h2>
+    <p>La masterclass plantea una distinción que tiene consecuencias directas en cómo se diseñan los equipos y los procesos internos. No es un cambio de semántica — es un cambio de modelo.</p>
+
+    <div class="tabla-wrap">
+      <table class="tabla">
+        <thead>
+          <tr>
+            <th>Dimensión</th>
+            <th>Lo que ya no diferencia</th>
+            <th>Lo que construye ventaja</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Centro</td>
+            <td>El individuo y su rendimiento</td>
+            <td>La relación y el cuidado mutuo</td>
+          </tr>
+          <tr>
+            <td>Motor</td>
+            <td>La instrucción y el proceso</td>
+            <td>El propósito y la confianza</td>
+          </tr>
+          <tr>
+            <td>Recurso</td>
+            <td>El tiempo de atención</td>
+            <td>La calidad del vínculo</td>
+          </tr>
+          <tr>
+            <td>Diseño</td>
+            <td>Impuesto desde liderazgo</td>
+            <td>Cocreado con los equipos</td>
+          </tr>
+          <tr>
+            <td>Métrica</td>
+            <td>¿Cumplió los OKRs?</td>
+            <td>¿Siente que pertenece?</td>
+          </tr>
+          <tr>
+            <td>Retención</td>
+            <td>Beneficios y compensación</td>
+            <td>Significado e identidad compartida</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="callout">
+      <p>"Sin recurrencia, no hay pertenencia. Un entorno que se visita una vez — por extraordinario que sea — no construye equipo."
+        <span class="callout-source">Cristina · Masterclass IE University</span>
+      </p>
+    </div>
+  </section>
+
+  <!-- SECCIÓN 4 -->
+  <section class="sec">
+    <p class="sec-eyebrow">04</p>
+    <h2>Qué significa construir un Cuarto Espacio en una organización que escala</h2>
+    <p>Un Cuarto Espacio no es un beneficio ni un programa de cultura corporativa. Es el conjunto de condiciones que hacen que una persona quiera seguir siendo parte de algo incluso cuando tiene opciones. En una startup tech, eso tiene aplicaciones muy concretas.</p>
+
+    <div class="principios">
+      <div class="principio">
+        <div>
+          <p class="princ-label">Onboarding como primer rito de pertenencia</p>
+          <span class="princ-badge">Alto impacto</span>
+        </div>
+        <p class="princ-desc">El onboarding no es un proceso de orientación — es la primera oportunidad de decirle a alguien "eres parte de algo que importa". Las organizaciones que lo diseñan así retienen más, integran más rápido y construyen identidad desde el día uno.</p>
+      </div>
+      <div class="principio">
+        <div>
+          <p class="princ-label">Líderes técnicos con herramientas de gestión humana</p>
+          <span class="princ-badge">Alta urgencia</span>
+        </div>
+        <p class="princ-desc">El mejor dev no necesariamente es el mejor líder de equipo. Darle las herramientas para gestionar personas — no solo código — es lo que hace que el equipo técnico escale sin quemarse. Sin eso, los líderes más valiosos se agotan y los mejores talentos se van.</p>
+      </div>
+      <div class="principio">
+        <div>
+          <p class="princ-label">Memoria institucional diseñada</p>
+          <span class="princ-badge">Prevención</span>
+        </div>
+        <p class="princ-desc">Los rituales, las historias y los espacios de conversación que preservan lo que hace especial a la organización — incluso cuando las personas rotan. No es nostalgia: es la ventaja competitiva más difícil de copiar.</p>
+      </div>
+      <div class="principio">
+        <div>
+          <p class="princ-label">Coherencia entre mercados</p>
+          <span class="princ-badge">Expansión</span>
+        </div>
+        <p class="princ-desc">Cuando operas en dos países, la cultura no viaja en el mismo avión que el Country Manager. Construir puentes intencionales de identidad compartida entre HQ y las operaciones locales es lo que hace que el crecimiento sea sostenible.</p>
+      </div>
+    </div>
+
+    <div class="regla">
+      <div class="regla-barra"></div>
+      <p>La regla de oro: si la única razón por la que las personas están es el sueldo y los desafíos técnicos, tienes un equipo — no una organización. La diferencia importa cuando empieza a haber opciones.</p>
+    </div>
+  </section>
+
+  <!-- SECCIÓN 5 -->
+  <section class="sec">
+    <p class="sec-eyebrow">05</p>
+    <h2>La pregunta que el framework deja abierta</h2>
+    <p>La masterclass cierra con una tarea sin respuesta única: <strong>¿Cómo diseñamos y aplicamos esto a nuestros propios espacios?</strong></p>
+    <p>Para organizaciones que operan a velocidad de producto — lanzando features, expandiendo mercados, cerrando regulaciones simultáneamente — la cultura es la última variable que se mide y la primera que determina si el crecimiento es sostenible o frágil.</p>
+    <p>No hay un playbook universal. Pero hay una brújula: las organizaciones que priorizan el vínculo sobre el proceso, y la cocreación sobre la instrucción, son las que escalan sin romperse.</p>
+  </section>
+
+</main>
+
+<!-- CIERRE -->
+<footer class="cierre">
+  <div class="cierre-inner">
+    <span class="cierre-eyebrow">Sobre estos apuntes</span>
+    <h2>Si algo de esto conectó, me encantaría escucharlo</h2>
+    <p class="cierre-txt">Este es un resumen de los conceptos centrales de la masterclass, sin agenda. Si alguna de estas ideas resuena con lo que están navegando en Fintoc hoy, estoy disponible para una conversación.</p>
+
+    <div class="contacto">
+      <div class="c-fila">
+        <div class="c-icono">
+          <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 10.8 19.79 19.79 0 01.22 2.18 2 2 0 012.18 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 7.91a16 16 0 006.18 6.18l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+        </div>
+        <div>
+          <span class="c-label">Teléfono</span>
+          <span class="c-valor"><a href="tel:+56992827933">+56 9 9282 7933</a></span>
+        </div>
+      </div>
+      <div class="c-fila">
+        <div class="c-icono">
+          <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        </div>
+        <div>
+          <span class="c-label">Correo</span>
+          <span class="c-valor"><a href="mailto:ignacio.gomuz@gmail.com">ignacio.gomuz@gmail.com</a></span>
+        </div>
+      </div>
+    </div>
+
+    <div class="firma">
+      <div>
+        <p class="firma-nombre">Ignacio Gómez</p>
+        <p class="firma-rol">Business Partner — Proqualitas</p>
+      </div>
+      <span class="firma-badge">Proqualitas · +30 años</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
